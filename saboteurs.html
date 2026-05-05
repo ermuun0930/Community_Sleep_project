@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Saboteurs - SleepHacker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">💤 SleepHacker</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="science.html">The Science</a></li>
+          <li><a href="saboteurs.html" class="active">The Saboteurs</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="page-header">
+      <h1>The Saboteurs</h1>
+      <p>What's actually ruining your sleep (and how to fight back).</p>
+    </section>
+
+    <!-- Saboteur 1: Caffeine -->
+    <section class="saboteur-section">
+      <div class="saboteur-intro">
+        <h2>☕ The Caffeine Trap: The Antagonist Illusion</h2>
+        <p class="saboteur-hook">
+          <strong>The Lie You've Been Told:</strong> "Caffeine gives you
+          energy."
+        </p>
+        <p class="saboteur-truth">
+          <strong>The Truth:</strong> Caffeine doesn't give you energy. It's an
+          antagonist that blocks your adenosine receptors, masking your body's
+          sleep pressure signals.
+        </p>
+      </div>
+
+      <div class="saboteur-explainer">
+        <div class="saboteur-visual">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Receptor cells -->
+            <circle
+              cx="100"
+              cy="80"
+              r="40"
+              fill="none"
+              stroke="#00d4ff"
+              stroke-width="2"
+            />
+            <text
+              x="100"
+              y="85"
+              text-anchor="middle"
+              fill="#00d4ff"
+              font-size="12"
+              font-weight="bold"
+            >
+              Normal
+            </text>
+
+            <!-- Adenosine fitting -->
+            <circle cx="100" cy="80" r="15" fill="#ff6b00" />
+            <text
+              x="100"
+              y="85"
+              text-anchor="middle"
+              fill="#fff"
+              font-size="10"
+            >
+              A
+            </text>
+
+            <!-- Arrow -->
+            <path
+              d="M 150 80 L 200 80"
+              stroke="#00ff88"
+              stroke-width="2"
+              marker-end="url(#arrowhead)"
+            />
+            <text
+              x="175"
+              y="70"
+              text-anchor="middle"
+              fill="#00ff88"
+              font-size="11"
+            >
+              CAFFEINE BLOCKS
+            </text>
+
+            <!-- Blocked receptor -->
+            <circle
+              cx="300"
+              cy="80"
+              r="40"
+              fill="none"
+              stroke="#ff00ff"
+              stroke-width="2"
+              stroke-dasharray="5,5"
+            />
+            <text
+              x="300"
+              y="85"
+              text-anchor="middle"
+              fill="#ff00ff"
+              font-size="12"
+              font-weight="bold"
+            >
+              On Caffeine
+            </text>
+
+            <!-- Caffeine blocking -->
+            <circle cx="300" cy="80" r="15" fill="#ff00ff" opacity="0.7" />
+            <text
+              x="300"
+              y="85"
+              text-anchor="middle"
+              fill="#fff"
+              font-size="10"
+            >
+              C
+            </text>
+
+            <!-- Lower section: Timeline -->
+            <line
+              x1="50"
+              y1="180"
+              x2="350"
+              y2="180"
+              stroke="#00d4ff"
+              stroke-width="1"
+            />
+
+            <!-- 7 AM -->
+            <circle cx="50" cy="180" r="4" fill="#00ff88" />
+            <text
+              x="50"
+              y="210"
+              text-anchor="middle"
+              fill="#00ff88"
+              font-size="11"
+              font-weight="bold"
+            >
+              7 AM
+            </text>
+            <text
+              x="50"
+              y="225"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Caffeine In
+            </text>
+
+            <!-- 2 PM -->
+            <circle cx="150" cy="180" r="4" fill="#ffaa00" />
+            <text
+              x="150"
+              y="210"
+              text-anchor="middle"
+              fill="#ffaa00"
+              font-size="11"
+              font-weight="bold"
+            >
+              2 PM (50%)
+            </text>
+            <text
+              x="150"
+              y="225"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Blocked
+            </text>
+
+            <!-- 9 PM -->
+            <circle cx="250" cy="180" r="4" fill="#ff6b00" />
+            <text
+              x="250"
+              y="210"
+              text-anchor="middle"
+              fill="#ff6b00"
+              font-size="11"
+              font-weight="bold"
+            >
+              9 PM (25%)
+            </text>
+            <text
+              x="250"
+              y="225"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Still Blocked
+            </text>
+
+            <!-- 11 PM Crash -->
+            <circle cx="350" cy="180" r="4" fill="#ff0000" />
+            <text
+              x="350"
+              y="210"
+              text-anchor="middle"
+              fill="#ff0000"
+              font-size="11"
+              font-weight="bold"
+            >
+              11 PM
+            </text>
+            <text
+              x="350"
+              y="225"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Adenosine Floods
+            </text>
+          </svg>
+        </div>
+
+        <div class="saboteur-text">
+          <h3>The Neurochemistry</h3>
+          <p>
+            Your brain produces adenosine constantly while you're awake.
+            Adenosine molecules bind to adenosine receptors, sending a "you need
+            sleep" signal. This is your adenosine pressure gauge.
+          </p>
+          <p>
+            <strong>Caffeine's trick:</strong> Caffeine molecules fit the same
+            receptors as adenosine but don't activate them—they just block the
+            receptor. Your adenosine pressure is still building, but the signal
+            never reaches your brain. You feel energized because you can't feel
+            the pressure.
+          </p>
+          <p>
+            <strong>The Crash:</strong> Caffeine's half-life is 5-6 hours. At 2
+            PM (for a 7 AM coffee), you've got 50% of the caffeine still
+            blocking your receptors. But the blocked adenosine keeps building.
+            When the caffeine finally wears off around midnight, all that
+            adenosine floods your receptors at once. That sudden wave? The
+            crash.
+          </p>
+
+          <h3>Why College Students Get Trapped</h3>
+          <ul class="trap-list">
+            <li>
+              <strong>The Vicious Cycle:</strong> You have an 8 AM class
+              (fighting your circadian phase delay). You're sleep-deprived. You
+              drink coffee to compensate. This blocks your sleep pressure for 12
+              hours. You can't sleep until midnight or later. You get 5-6 hours.
+              You're tired the next day. More coffee. Repeat.
+            </li>
+            <li>
+              <strong>Energy Drinks Are Worse:</strong> A 16 oz energy drink has
+              300+ mg of caffeine. A coffee has 95 mg. And energy drinks often
+              add sugar, which spikes cortisol (waking you up further) and
+              crashes 3 hours later, pushing you back to caffeine.
+            </li>
+            <li>
+              <strong>Tolerance Builds Fast:</strong> Adenosine receptors
+              upregulate. After 2-3 weeks of regular caffeine, your body
+              produces more receptors to compensate. You need more caffeine to
+              achieve the same effect. This is addiction.
+            </li>
+          </ul>
+
+          <h3>The Fix</h3>
+          <div class="fix-box">
+            <p>
+              <strong>Rule 1:</strong> No caffeine after 2 PM. Full stop. This
+              gives your body 8+ hours to clear it before sleep.
+            </p>
+            <p>
+              <strong>Rule 2:</strong> If you're going to use caffeine, use it
+              strategically. A 100-200 mg dose (1 coffee or strong tea) within
+              the first 2 hours of waking aligns with your natural cortisol
+              curve and doesn't bleed into evening.
+            </p>
+            <p>
+              <strong>Rule 3:</strong> If you're trying to reset after weeks of
+              dependency, expect 3-5 days of withdrawal (fatigue, headaches).
+              Push through. Your adenosine sensitivity rebounds. Your sleep will
+              be DEEP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Saboteur 2: ALAN (Artificial Light At Night) -->
+    <section class="saboteur-section">
+      <div class="saboteur-intro">
+        <h2>💻 ALAN: Artificial Light At Night (Your Dorm's Silent Killer)</h2>
+        <p class="saboteur-hook">
+          <strong>The Problem:</strong> Your dorm room is a melatonin
+          assassination venue.
+        </p>
+        <p class="saboteur-truth">
+          <strong>The Truth:</strong> Blue light from screens, LEDs, and
+          overhead lights is the most powerful "zeitgeber" (time-giver) your
+          brain knows. A single evening on your laptop is equivalent to the
+          brain receiving a "it's mid-afternoon" signal.
+        </p>
+      </div>
+
+      <div class="saboteur-explainer">
+        <div class="saboteur-visual">
+          <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+            <!-- Melatonin curve WITHOUT blue light -->
+            <g>
+              <text
+                x="20"
+                y="30"
+                fill="#00ff88"
+                font-size="12"
+                font-weight="bold"
+              >
+                Normal Evening
+              </text>
+              <path
+                d="M 40 100 L 100 100 L 150 90 L 200 60 L 250 30"
+                fill="none"
+                stroke="#00ff88"
+                stroke-width="3"
+              />
+              <text x="260" y="35" fill="#00ff88" font-size="11">
+                Melatonin ↑
+              </text>
+            </g>
+
+            <!-- Melatonin curve WITH blue light -->
+            <g>
+              <text
+                x="20"
+                y="160"
+                fill="#ff00ff"
+                font-size="12"
+                font-weight="bold"
+              >
+                With Blue Light (Phone/Laptop)
+              </text>
+              <path
+                d="M 40 200 L 100 200 L 150 190 L 200 180 L 250 170"
+                fill="none"
+                stroke="#ff00ff"
+                stroke-width="3"
+                stroke-dasharray="5,5"
+              />
+              <text x="260" y="175" fill="#ff00ff" font-size="11">
+                Melatonin Suppressed
+              </text>
+
+              <!-- Blue light zaps -->
+              <circle cx="130" cy="200" r="3" fill="#00d4ff" opacity="0.8" />
+              <circle cx="140" cy="200" r="3" fill="#00d4ff" opacity="0.8" />
+              <circle cx="150" cy="200" r="3" fill="#00d4ff" opacity="0.8" />
+              <circle cx="160" cy="200" r="3" fill="#00d4ff" opacity="0.8" />
+            </g>
+
+            <!-- Light spectrum -->
+            <g>
+              <text x="20" y="260" fill="#00d4ff" font-size="10">
+                Worst Wavelengths (Melatonin-Blocking):
+              </text>
+              <rect x="220" y="245" width="20" height="20" fill="#ff0000" />
+              <text x="250" y="258" fill="#888" font-size="9">Red 600nm</text>
+
+              <rect x="320" y="245" width="20" height="20" fill="#00d4ff" />
+              <text x="350" y="258" fill="#888" font-size="9">
+                Blue 470nm ← MOST DAMAGING
+              </text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="saboteur-text">
+          <h3>How It Works Against You</h3>
+          <p>
+            Your intrinsic photoreceptors (ipRGCs) in your retina detect blue
+            light (around 470 nanometers). This signal goes directly to your SCN
+            (the circadian pacemaker) and says, "It's daytime. Stay awake.
+            Suppress melatonin."
+          </p>
+          <p>
+            <strong>The Problem:</strong> Your laptop, phone, and dorm LED
+            lights emit PEAK blue light at 450-480 nm—the exact wavelength your
+            brain interprets as "midday sun." Scrolling on your phone at 11 PM?
+            Your brain thinks it's 2 PM. Your melatonin doesn't start rising for
+            hours.
+          </p>
+
+          <h3>Why It's Especially Bad in College</h3>
+          <ul class="trap-list">
+            <li>
+              <strong
+                >Your circadian phase is already delayed 2-3 hours.</strong
+              >
+              Blue light pushes it even later. You're fighting biology +
+              technology.
+            </li>
+            <li>
+              <strong>Dorm rooms are noisy and bright.</strong> Most dorms have
+              terrible light control. LEDs and bathroom lights bleed under
+              doors. This suppresses melatonin all night.
+            </li>
+            <li>
+              <strong>Social media = compulsive scrolling.</strong> One hour
+              turns into three. You're binge-watching or scrolling Reddit,
+              hitting your melatonin suppressors repeatedly.
+            </li>
+            <li>
+              <strong>You're probably in STEM classes.</strong> Coding
+              assignments at 10 PM, problem sets, lab reports—all on a laptop.
+              All with blue light pumping directly at your retinas.
+            </li>
+          </ul>
+
+          <h3>The Fix</h3>
+          <div class="fix-box">
+            <p>
+              <strong>Rule 1: No screens 1 hour before bed.</strong> This is
+              non-negotiable. Your melatonin needs 60+ minutes to rise without
+              interference.
+            </p>
+            <p>
+              <strong
+                >Rule 2: Use blue light glasses after 8 PM if you must
+                study.</strong
+              >
+              Amber/red lenses block 99% of blue light. They look goofy, but
+              they work. Your melatonin will appreciate it.
+            </p>
+            <p>
+              <strong>Rule 3: Dim your room lights 2 hours before bed.</strong>
+              Not off (that's abrupt), but dim. Warm white lights (2700K color
+              temperature). Avoid cool white (4000K+) and LEDs.
+            </p>
+            <p>
+              <strong>Rule 4: Get bright light in the morning (6-8 AM).</strong>
+              This anchors your circadian rhythm and makes your evening
+              melatonin rise earlier. Sunlight is best. A 10,000 lux light box
+              works if it's cloudy.
+            </p>
+            <p>
+              <strong>Rule 5: Blackout curtains or a sleep mask.</strong> Even
+              small light leaks (hallway lights, alarm clock LEDs) can suppress
+              melatonin. Total darkness is your friend.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Saboteur 3: Temperature -->
+    <section class="saboteur-section">
+      <div class="saboteur-intro">
+        <h2>🌡️ Temperature: The Thermostat War</h2>
+        <p class="saboteur-hook">
+          <strong>The Problem:</strong> Your core body temperature must drop
+          2-3°F to initiate sleep. A hot dorm room makes this impossible.
+        </p>
+        <p class="saboteur-truth">
+          <strong>The Truth:</strong> Temperature is one of the most powerful
+          sleep signals in your body. Too hot = fragmented, light sleep. Too
+          cold = you wake up shivering. There's a sweet spot, and your dorm is
+          probably the opposite.
+        </p>
+      </div>
+
+      <div class="saboteur-explainer">
+        <div class="saboteur-visual">
+          <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Temperature scale -->
+            <line
+              x1="50"
+              y1="250"
+              x2="450"
+              y2="250"
+              stroke="#00d4ff"
+              stroke-width="2"
+            />
+
+            <!-- Cold side -->
+            <circle cx="80" cy="250" r="6" fill="#00d4ff" opacity="0.3" />
+            <text
+              x="80"
+              y="275"
+              text-anchor="middle"
+              fill="#00d4ff"
+              font-size="11"
+            >
+              60°F
+            </text>
+            <text
+              x="80"
+              y="290"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Too Cold
+            </text>
+
+            <!-- Good zone -->
+            <circle cx="200" cy="250" r="8" fill="#00ff88" />
+            <text
+              x="200"
+              y="275"
+              text-anchor="middle"
+              fill="#00ff88"
+              font-size="11"
+              font-weight="bold"
+            >
+              65-68°F
+            </text>
+            <text
+              x="200"
+              y="290"
+              text-anchor="middle"
+              fill="#00ff88"
+              font-size="10"
+              font-weight="bold"
+            >
+              OPTIMAL
+            </text>
+            <polygon points="200,230 190,240 210,240" fill="#00ff88" />
+
+            <!-- Warm side -->
+            <circle cx="320" cy="250" r="6" fill="#ff00ff" opacity="0.5" />
+            <text
+              x="320"
+              y="275"
+              text-anchor="middle"
+              fill="#ff00ff"
+              font-size="11"
+            >
+              72°F
+            </text>
+            <text
+              x="320"
+              y="290"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Poor Sleep
+            </text>
+
+            <!-- Hot side -->
+            <circle cx="420" cy="250" r="6" fill="#ff0000" />
+            <text
+              x="420"
+              y="275"
+              text-anchor="middle"
+              fill="#ff0000"
+              font-size="11"
+            >
+              76°F+
+            </text>
+            <text
+              x="420"
+              y="290"
+              text-anchor="middle"
+              fill="#888"
+              font-size="10"
+            >
+              Fragmented
+            </text>
+
+            <!-- Sleep quality illustration -->
+            <g>
+              <text
+                x="50"
+                y="50"
+                fill="#00d4ff"
+                font-size="12"
+                font-weight="bold"
+              >
+                Sleep Quality vs Temperature
+              </text>
+
+              <!-- Good sleep (cool) -->
+              <path
+                d="M 80 100 L 110 90 L 140 95 L 170 85 L 200 90"
+                fill="none"
+                stroke="#00ff88"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <text
+                x="80"
+                y="130"
+                text-anchor="middle"
+                fill="#00ff88"
+                font-size="10"
+              >
+                Deep Sleep
+              </text>
+
+              <!-- Poor sleep (warm) -->
+              <path
+                d="M 280 100 L 310 120 L 340 80 L 370 110 L 400 100"
+                fill="none"
+                stroke="#ff00ff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-dasharray="5,5"
+              />
+              <text
+                x="320"
+                y="130"
+                text-anchor="middle"
+                fill="#ff00ff"
+                font-size="10"
+              >
+                Fragmented
+              </text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="saboteur-text">
+          <h3>The Thermoregulation Mechanism</h3>
+          <p>
+            Your body's core temperature naturally drops 2-3°F in the evening
+            and stays low during sleep. This is called the "thermal dip." When
+            your environment is too warm, your body can't achieve this dip, so
+            your brain never receives the full "go to sleep" signal. You'll get
+            light, fragmented sleep and wake up frequently.
+          </p>
+
+          <h3>Why Dorms Are a Nightmare</h3>
+          <ul class="trap-list">
+            <li>
+              <strong>Central heating in winter:</strong> Many dorm buildings
+              heat rooms to 72-76°F. This is way too warm for sleep.
+            </li>
+            <li>
+              <strong>No individual thermostats:</strong> You can't control your
+              room temperature. You're stuck with whatever the building decides.
+            </li>
+            <li>
+              <strong>Poor insulation:</strong> Dorms often have thin walls and
+              windows. Heat bleeds in from hallways and adjacent rooms.
+            </li>
+            <li>
+              <strong>Bodies in small rooms:</strong> If you have a roommate,
+              your body heat combined in a small 10x12 ft room can raise the
+              temperature 3-5°F above the hall temperature.
+            </li>
+          </ul>
+
+          <h3>The Fix</h3>
+          <div class="fix-box">
+            <p>
+              <strong>Rule 1: Aim for 65-68°F in your room.</strong> This is the
+              scientifically optimal range for sleep. If you can control the
+              thermostat, set it here.
+            </p>
+            <p>
+              <strong
+                >Rule 2: If you can't control the thermostat, use a fan.</strong
+              >
+              Not to cool you (though it helps), but for white noise and air
+              circulation. Open your window a crack if possible.
+            </p>
+            <p>
+              <strong>Rule 3: Use breathable bedding.</strong> Cotton sheets,
+              not polyester. Breathable mattress covers. A heavy comforter you
+              can throw off if you get hot.
+            </p>
+            <p>
+              <strong>Rule 4: Cool your hands and feet.</strong> These are
+              heat-dissipation sites. Damp a sock in cool water and wrap it
+              around your wrist or ankle 15 minutes before bed. Your core
+              temperature will drop faster.
+            </p>
+            <p>
+              <strong>Rule 5: Petition your dorm building.</strong> Talk to your
+              RA about lowering the thermostat in the sleeping hours (11 PM - 7
+              AM). Most buildings can do this. Shared comfort = shared benefit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Now Get the Tools</h2>
+      <p>
+        Interactive calculators and assessments to optimize your sleep right
+        now.
+      </p>
+      <button class="cta-primary" onclick="window.location.href = 'tools.html'">
+        Go to the Tools
+      </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>SleepHacker</h4>
+          <p>Science-backed sleep optimization for high-achieving students.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="science.html">The Science</a></li>
+            <li><a href="saboteurs.html">The Saboteurs</a></li>
+            <li><a href="tools.html">Tools</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Disclaimer</h4>
+          <p>
+            This site provides educational information backed by peer-reviewed
+            sleep science. For medical concerns, consult a healthcare provider.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SleepHacker. Built by sleep scientists and
+          neurotransmitter nerds. 💤
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

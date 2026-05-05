@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Science - SleepHacker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💤 SleepHacker</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="science.html" class="active">The Science</a></li>
+                <li><a href="saboteurs.html">The Saboteurs</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>How Your Brain Actually Works</h1>
+        <p>The neurobiology of sleep decoded for college students.</p>
+    </section>
+
+    <!-- Two-Process Model -->
+    <section class="science-section">
+        <h2 class="section-title">The Two-Process Model: Your Sleep Superpowers</h2>
+        <p class="section-intro">Your sleep isn't a random state of unconsciousness. It's orchestrated by two powerful biological systems working in parallel:</p>
+
+        <div class="science-grid">
+            
+            <!-- Process 1: Circadian Rhythm (Sleep Clock) -->
+            <div class="process-card">
+                <h3>⏰ The Sleep Clock (Circadian Rhythm)</h3>
+                <div class="process-visual">
+                    <svg class="circadian-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 24-hour clock -->
+                        <circle cx="150" cy="150" r="130" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.3"/>
+                        <circle cx="150" cy="150" r="120" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
+                        
+                        <!-- Time labels -->
+                        <text x="150" y="40" text-anchor="middle" fill="#00d4ff" font-size="12">6 AM</text>
+                        <text x="260" y="155" text-anchor="start" fill="#00d4ff" font-size="12">12 PM</text>
+                        <text x="150" y="275" text-anchor="middle" fill="#00d4ff" font-size="12">6 PM</text>
+                        <text x="40" y="155" text-anchor="end" fill="#00d4ff" font-size="12">12 AM</text>
+                        
+                        <!-- Melatonin curve -->
+                        <path d="M 150 40 Q 200 80 260 150 Q 200 220 150 260 Q 100 220 40 150 Q 100 80 150 40" fill="none" stroke="#ff00ff" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Center -->
+                        <circle cx="150" cy="150" r="20" fill="#1a1a2e"/>
+                        <text x="150" y="158" text-anchor="middle" fill="#00ff88" font-size="10" font-weight="bold">SCN</text>
+                    </svg>
+                </div>
+                <p><strong>What it does:</strong> Your suprachiasmatic nucleus (SCN) is a tiny brain region that rules your 24-hour cycle. It reads daylight cues and tells your brain when to produce melatonin (the sleep hormone).</p>
+                <p><strong>In college terms:</strong> 10 AM class when you got to bed at 3 AM? Your SCN is screaming at you to sleep while you're fighting it with coffee. You're literally fighting your biology.</p>
+                <p class="key-point">🔑 <strong>Why it matters:</strong> Light is the most powerful "zeitgeber" (time-giver) your body recognizes. Getting sunlight at 7 AM locks in your circadian rhythm. Blue light at midnight sabotages it.</p>
+            </div>
+
+            <!-- Process 2: Homeostatic Sleep Drive (Pressure Gauge) -->
+            <div class="process-card">
+                <h3>📊 The Pressure Gauge (Homeostatic Sleep Drive)</h3>
+                <div class="process-visual">
+                    <svg class="adenosine-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Gauge background -->
+                        <path d="M 50 250 L 50 100 Q 50 50 100 50 L 200 50 Q 250 50 250 100 L 250 250" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.3"/>
+                        
+                        <!-- Gauge fill (adenosine) -->
+                        <path d="M 50 250 L 50 140 Q 50 50 100 50 L 200 50 Q 250 50 250 100 L 250 250" fill="#ff6b00" opacity="0.3"/>
+                        
+                        <!-- Gauge needle -->
+                        <line x1="150" y1="250" x2="150" y2="80" stroke="#00ff88" stroke-width="3" stroke-linecap="round" transform="rotate(-20 150 250)"/>
+                        
+                        <!-- Time labels -->
+                        <text x="80" y="275" text-anchor="middle" fill="#00d4ff" font-size="11">WAKE</text>
+                        <text x="220" y="275" text-anchor="middle" fill="#00d4ff" font-size="11">SLEEP</text>
+                        
+                        <!-- Adenosine molecule representation -->
+                        <circle cx="140" cy="80" r="4" fill="#00ff88"/>
+                        <circle cx="160" cy="80" r="4" fill="#00ff88"/>
+                        <line x1="140" y1="80" x2="160" y2="80" stroke="#00ff88" stroke-width="2"/>
+                    </svg>
+                </div>
+                <p><strong>What it does:</strong> Every hour you're awake, adenosine accumulates in your brain like pressure building in a water tank. When adenosine reaches critical mass, you fall asleep. Sleep clears adenosine, resetting the gauge.</p>
+                <p><strong>In college terms:</strong> Caffeine doesn't give you energy—it's an antagonist that blocks your adenosine receptors, masking the pressure gauge. You feel fine, but the pressure is still building. When it wears off (the crash), BOOM.</p>
+                <p class="key-point">🔑 <strong>Why it matters:</strong> Napping on Monday resets your gauge temporarily, but skipping sleep for 3 days? Your adenosine pressure is astronomical. That's why the Monday after a no-sleep weekend is hell.</p>
+            </div>
+
+        </div>
+
+        <div class="process-explanation">
+            <p><strong>How they work together:</strong> If your circadian rhythm says "it's 2 PM, be awake," but your homeostatic pressure says "you've been awake 14 hours, sleep NOW," there's a conflict. When evening hits and BOTH systems align, you sleep like a rock. When they fight (because you're on a weird schedule or stuck in a noisy dorm), sleep is fragmented and brutal.</p>
+        </div>
+    </section>
+
+    <!-- Sleep Stages & Memory -->
+    <section class="science-section">
+        <h2 class="section-title">Declarative vs. Procedural Memory: Sleep by Your Major</h2>
+        <p class="section-intro">Not all sleep is created equal. Different sleep stages lock different types of memories. Here's how to sleep based on what you're learning:</p>
+
+        <div class="memory-grid">
+            <!-- Declarative Memory (NREM/Deep Sleep) -->
+            <div class="memory-card">
+                <h3>📖 Declarative Memory (Facts & Knowledge)</h3>
+                <p><strong>Sleep Stage:</strong> Slow Wave Sleep (N3) - Deep NREM</p>
+                <p><strong>Duration per night:</strong> 30-45 minutes total</p>
+                
+                <div class="who-needs-this">
+                    <p><strong>These majors need it most:</strong></p>
+                    <ul>
+                        <li>📚 History, Literature, Liberal Arts</li>
+                        <li>🧬 Biology, Chemistry, Organic Chem</li>
+                        <li>🏥 Pre-Med, Nursing, Public Health</li>
+                        <li>⚖️ Law, Political Science</li>
+                        <li>🌍 Languages, Foreign Studies</li>
+                    </ul>
+                </div>
+
+                <p class="explanation">
+                    <strong>What happens:</strong> During deep NREM, your brain replays the day's learning at 100x speed. New neural pathways are consolidated. The hippocampus (your brain's short-term storage) offloads information to the cortex (long-term storage). This is the "filing" process.
+                </p>
+                <p class="study-tip">
+                    💡 <strong>Study Hack:</strong> Study your lecture notes or vocab right before bed. Your brain will practice this material all night. Cramming 24 hours before an exam? You're giving your deep sleep zero time to consolidate.
+                </p>
+            </div>
+
+            <!-- Procedural Memory (REM Sleep) -->
+            <div class="memory-card">
+                <h3>🎯 Procedural Memory (Skills & Sequences)</h3>
+                <p><strong>Sleep Stage:</strong> REM (Rapid Eye Movement) Sleep</p>
+                <p><strong>Duration per night:</strong> 60-90 minutes total (mostly in final REM cycles)</p>
+                
+                <div class="who-needs-this">
+                    <p><strong>These majors need it most:</strong></p>
+                    <ul>
+                        <li>💻 Computer Science, Coding</li>
+                        <li>🔢 Mathematics, Engineering</li>
+                        <li>🎹 Music, Performance Arts</li>
+                        <li>🏋️ Physical Therapy, Athletic Training</li>
+                        <li>🎨 Design, Architecture</li>
+                    </ul>
+                </div>
+
+                <p class="explanation">
+                    <strong>What happens:</strong> REM sleep is where your brain learns sequences and motor patterns. If you spent the day learning a new coding algorithm or practicing piano scales, REM sleep is what actually embeds those motor commands into your cerebellum and motor cortex. Without REM, you learn the concept but can't execute it smoothly.
+                </p>
+                <p class="study-tip">
+                    💡 <strong>Study Hack:</strong> Practice a skill (coding, math problems, instrument) and then prioritize REM sleep that night. Your brain will practice the sequence thousands of times while you sleep. One good night of sleep after 3 hours of deliberate practice > 3 nights of poor sleep after cramming.
+                </p>
+            </div>
+        </div>
+
+        <div class="sleep-stages-visual">
+            <h3>A Typical Night's Sleep Architecture</h3>
+            <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" class="sleep-stages-chart">
+                <!-- Background -->
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" x2="100%" y1="0%" y2="0%">
+                        <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Y-axis labels -->
+                <text x="30" y="20" fill="#00d4ff" font-size="12">Awake</text>
+                <text x="30" y="70" fill="#00d4ff" font-size="12">Light</text>
+                <text x="30" y="120" fill="#00d4ff" font-size="12">Deep</text>
+                <text x="30" y="170" fill="#00d4ff" font-size="12">REM</text>
+                
+                <!-- Sleep cycles (simplified representation) -->
+                <path d="M 80 50 L 150 100 L 180 150 L 200 120 L 250 80 L 320 100 L 350 150 L 370 120 L 420 80 L 490 100 L 520 150 L 540 90 L 590 50 L 650 100 L 680 180 L 720 120" 
+                      fill="none" stroke="#00ff88" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- Cycle markers -->
+                <circle cx="180" cy="150" r="6" fill="#ff6b00"/>
+                <circle cx="350" cy="150" r="6" fill="#ff6b00"/>
+                <circle cx="520" cy="150" r="6" fill="#ff6b00"/>
+                <circle cx="680" cy="180" r="6" fill="#ff00ff"/>
+                
+                <!-- X-axis labels (time) -->
+                <text x="150" y="290" text-anchor="middle" fill="#00d4ff" font-size="11">Cycle 1</text>
+                <text x="320" y="290" text-anchor="middle" fill="#00d4ff" font-size="11">Cycle 2</text>
+                <text x="490" y="290" text-anchor="middle" fill="#00d4ff" font-size="11">Cycle 3</text>
+                <text x="660" y="290" text-anchor="middle" fill="#00ff88" font-size="11">REM-Heavy</text>
+                
+                <text x="80" y="260" fill="#666" font-size="10">11 PM</text>
+                <text x="750" y="260" fill="#666" font-size="10">7 AM</text>
+            </svg>
+            <p class="chart-explanation">
+                Each 90-minute cycle moves you through light sleep → deep sleep → REM. Early cycles are deep-sleep dominant (great for memory consolidation). Later cycles are REM-dominant (great for procedural learning and emotional processing). Cut your sleep short? You lose the REM cycles entirely.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Phase Delay Validation -->
+    <section class="science-section phase-delay">
+        <h2 class="section-title">🌙 The Phase Delay Validation: You're Not Lazy, You're Biologically Late</h2>
+        
+        <div class="phase-delay-content">
+            <p class="intro-text">
+                During puberty and late adolescence (ages 13-25), your circadian rhythm naturally shifts about 1-3 hours later. This is called <strong>circadian phase delay</strong>. Your brain genuinely wants to sleep at 1-2 AM and wake at 9-10 AM. This is not laziness. This is biology.
+            </p>
+
+            <div class="phase-delay-visual">
+                <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Adult schedule -->
+                    <rect x="50" y="30" width="250" height="40" fill="#1a3a3a" stroke="#00d4ff" stroke-width="2" rx="5"/>
+                    <text x="60" y="60" fill="#00d4ff" font-size="12" font-weight="bold">Adult (30+)</text>
+                    <text x="200" y="60" fill="#00ff88" font-size="11">Sleep: 11 PM - 7 AM</text>
+                    
+                    <!-- Teen schedule (delayed) -->
+                    <rect x="50" y="100" width="250" height="40" fill="#2a1a3a" stroke="#ff00ff" stroke-width="2" rx="5"/>
+                    <text x="60" y="130" fill="#ff00ff" font-size="12" font-weight="bold">College Student (18-22)</text>
+                    <text x="200" y="130" fill="#ff00ff" font-size="11">Sleep: 1 AM - 9 AM (Natural)</text>
+                    
+                    <!-- Societal expectation -->
+                    <rect x="50" y="170" width="250" height="40" fill="#3a1a1a" stroke="#ff6b00" stroke-width="2" rx="5"/>
+                    <text x="60" y="200" fill="#ff6b00" font-size="12" font-weight="bold">What Society Expects</text>
+                    <text x="200" y="200" fill="#ff6b00" font-size="11">8 AM Class = Sleep Debt</text>
+                    
+                    <!-- Shift arrow -->
+                    <path d="M 330 50 L 380 50" stroke="#00ff88" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <text x="350" y="45" fill="#00ff88" font-size="10" text-anchor="middle">+2-3 hrs</text>
+                </svg>
+            </div>
+
+            <div class="phase-delay-explanation">
+                <p>
+                    <strong>The Problem:</strong> Evolution didn't design your circadian rhythm for 8 AM lectures. Your brain is genetically programmed to be asleep at that time. That's not an excuse—it's literally encoded in your melatonin production.
+                </p>
+                <p>
+                    <strong>The Reality:</strong> A college student forced into an 8 AM class is like asking an adult to wake up at 4:30 AM. For four years. Every day. That's the sleep debt you're running.
+                </p>
+                <p class="actionable">
+                    <strong>What you can do:</strong> You can shift your rhythm back by 30-60 minutes with consistent light exposure and sleep timing, but you can't fully override this. Advocate for yourself: choose afternoon classes when possible, use summer to reset your schedule (you're not being lazy, you're being neurobiologically honest), and accept that your natural rhythm is later. The sooner you stop fighting your biology and start working with it, the better you sleep.
+                </p>
+            </div>
+        </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Now Understand the Enemies</h2>
+        <p>Let's look at what's sabotaging your sleep in the dorm.</p>
+        <button class="cta-primary" onclick="window.location.href='saboteurs.html'">Explore the Saboteurs</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SleepHacker</h4>
+                <p>Science-backed sleep optimization for high-achieving students.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="science.html">The Science</a></li>
+                    <li><a href="saboteurs.html">The Saboteurs</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Disclaimer</h4>
+                <p>This site provides educational information backed by peer-reviewed sleep science. For medical concerns, consult a healthcare provider.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SleepHacker. Built by sleep scientists and neurotransmitter nerds. 💤</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
