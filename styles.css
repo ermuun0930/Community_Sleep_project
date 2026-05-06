@@ -894,6 +894,58 @@ body {
   font-size: 0.95rem;
 }
 
+/* ==================== TOOLKIT STYLES ==================== */
+
+.toolkit-content {
+  display: grid;
+  gap: 2rem;
+}
+
+.toolkit-item {
+  background: var(--bg-card);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.toolkit-item:hover {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.toolkit-item h3 {
+  color: var(--neon-cyan);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.toolkit-item p {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* ==================== SABOTAGE STYLES ==================== */
+
+.sabotage-item {
+  background: rgba(255, 0, 255, 0.05);
+  border: 1px solid var(--neon-magenta);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sabotage-item h3 {
+  color: var(--neon-magenta);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.sabotage-item p {
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
 /* ==================== QUIZ STYLES ==================== */
 
 .quiz-container {
