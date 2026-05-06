@@ -341,7 +341,323 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  initSleepLog();
 });
+
+/* ==================== SLEEP LOG BUILDER ==================== */
+
+const SLEEP_SLOT_COUNT = 48;
+const sleepLogState = [];
+let isPointerDown = false;
+let pointerMode = "fill";
+let selectedTag = null;
+
+const tagMeta = {
+  C: { label: "Caffeine", color: "#ff6b00" },
+  M: { label: "Medicine", color: "#00d4ff" },
+  A: { label: "Alcohol", color: "#ff0000" },
+  E: { label: "Exercise", color: "#00ff88" },
+};
+
+function initSleepLog() {
+  const grid = document.getElementById("sleep-grid");
+  const labels = document.getElementById("sleep-log-labels");
+  const history = getSleepHistory();
+
+  sleepLogState.length = 0;
+  for (let i = 0; i < SLEEP_SLOT_COUNT; i += 1) {
+    sleepLogState.push({ sleep: false, tag: null });
+  }
+
+  grid.innerHTML = "";
+  labels.innerHTML = "";
+
+  for (let index = 0; index < SLEEP_SLOT_COUNT; index += 1) {
+    const slot = document.createElement("div");
+    slot.className = "slot";
+    slot.dataset.index = index;
+    slot.dataset.time = formatSleepTime(index);
+    slot.addEventListener("pointerdown", handleSlotPointerDown);
+    slot.addEventListener("pointerenter", handleSlotPointerEnter);
+    slot.addEventListener("click", handleSlotClick);
+    slot.addEventListener("dragover", handleSlotDragOver);
+    slot.addEventListener("drop", handleSlotDrop);
+    slot.addEventListener("dragstart", (event) => event.preventDefault());
+
+    const tagSpan = document.createElement("span");
+    tagSpan.className = "slot-tag";
+    slot.appendChild(tagSpan);
+
+    grid.appendChild(slot);
+
+    const label = document.createElement("span");
+    if (index % 4 === 0) {
+      label.textContent = formatSleepTime(index);
+    }
+    labels.appendChild(label);
+  }
+
+  document.addEventListener("pointerup", handlePointerUp);
+  document.getElementById("clear-sleep").addEventListener("click", clearSleep);
+  document.getElementById("clear-tags").addEventListener("click", clearTags);
+  document
+    .getElementById("save-sleep-log")
+    .addEventListener("click", saveSleepLog);
+
+  document.querySelectorAll(".tag-chip").forEach((chip) => {
+    chip.addEventListener("click", () => selectTag(chip));
+    chip.addEventListener("dragstart", (event) => {
+      event.dataTransfer.setData("text/plain", chip.dataset.tag);
+      event.dataTransfer.effectAllowed = "copy";
+    });
+  });
+
+  renderHistory(history);
+  updateSleepSummary();
+}
+
+function formatSleepTime(index) {
+  const minutes = (index % 2) * 30;
+  const hour = 12 + Math.floor(index / 2);
+  const normalized = hour % 24;
+  const suffix = normalized < 12 ? "AM" : "PM";
+  const displayHour = normalized % 12 === 0 ? 12 : normalized % 12;
+  return `${displayHour}:${String(minutes).padStart(2, "0")} ${suffix}`;
+}
+
+function handleSlotPointerDown(event) {
+  const slot = event.currentTarget;
+  const index = Number(slot.dataset.index);
+
+  if (selectedTag) {
+    assignTag(slot, selectedTag);
+    return;
+  }
+
+  isPointerDown = true;
+  const currentSleep = sleepLogState[index].sleep;
+  pointerMode = currentSleep ? "erase" : "fill";
+  toggleSleepSlot(slot, pointerMode === "fill");
+}
+
+function handleSlotPointerEnter(event) {
+  if (!isPointerDown || selectedTag) {
+    return;
+  }
+  toggleSleepSlot(event.currentTarget, pointerMode === "fill");
+}
+
+function handlePointerUp() {
+  isPointerDown = false;
+}
+
+function handleSlotClick(event) {
+  if (!selectedTag) {
+    return;
+  }
+  assignTag(event.currentTarget, selectedTag);
+}
+
+function handleSlotDragOver(event) {
+  event.preventDefault();
+}
+
+function handleSlotDrop(event) {
+  event.preventDefault();
+  const tag = event.dataTransfer.getData("text/plain");
+  if (tag) {
+    assignTag(event.currentTarget, tag);
+  }
+}
+
+function selectTag(chip) {
+  const tag = chip.dataset.tag;
+  if (selectedTag === tag) {
+    selectedTag = null;
+  } else {
+    selectedTag = tag;
+  }
+
+  document.querySelectorAll(".tag-chip").forEach((item) => {
+    item.classList.toggle("selected", item.dataset.tag === selectedTag);
+  });
+}
+
+function toggleSleepSlot(slot, fill) {
+  const index = Number(slot.dataset.index);
+  sleepLogState[index].sleep = fill;
+  updateSlotVisual(slot, sleepLogState[index]);
+  updateSleepSummary();
+}
+
+function assignTag(slot, tag) {
+  const index = Number(slot.dataset.index);
+  const currentTag = sleepLogState[index].tag;
+  sleepLogState[index].tag = currentTag === tag ? null : tag;
+  updateSlotVisual(slot, sleepLogState[index]);
+  updateSleepSummary();
+}
+
+function updateSlotVisual(slot, state) {
+  slot.classList.toggle("slot-sleep", state.sleep);
+  const tagSpan = slot.querySelector(".slot-tag");
+
+  if (state.tag) {
+    tagSpan.style.display = "flex";
+    tagSpan.textContent = state.tag;
+    tagSpan.style.background = tagMeta[state.tag].color;
+  } else {
+    tagSpan.style.display = "none";
+  }
+}
+
+function clearSleep() {
+  sleepLogState.forEach((entry) => {
+    entry.sleep = false;
+  });
+  document.querySelectorAll(".slot").forEach((slot) => {
+    updateSlotVisual(slot, sleepLogState[Number(slot.dataset.index)]);
+  });
+  updateSleepSummary();
+}
+
+function clearTags() {
+  sleepLogState.forEach((entry) => {
+    entry.tag = null;
+  });
+  document.querySelectorAll(".slot").forEach((slot) => {
+    updateSlotVisual(slot, sleepLogState[Number(slot.dataset.index)]);
+  });
+  updateSleepSummary();
+}
+
+function updateSleepSummary() {
+  const summary = document.getElementById("sleep-log-summary");
+  const totalSleep = sleepLogState.filter((slot) => slot.sleep).length * 0.5;
+  const segments = countSleepSegments();
+  const awakenings = Math.max(0, segments - 1);
+  const tagCounts = getTagCounts();
+  const score = computeSleepScore(totalSleep);
+
+  summary.innerHTML = `
+    <h3>Sleep Log Summary</h3>
+    <p><strong>Total sleep:</strong> ${totalSleep.toFixed(1)} hours</p>
+    <p><strong>Awakenings recorded:</strong> ${awakenings}</p>
+    <p><strong>Sleep score:</strong> ${score}%</p>
+    <div class="tag-summary">
+      ${Object.keys(tagMeta)
+        .map(
+          (key) => `<span>${tagMeta[key].label}: ${tagCounts[key] || 0}</span>`,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function countSleepSegments() {
+  let segments = 0;
+  let currentlySleeping = false;
+
+  sleepLogState.forEach((slot) => {
+    if (slot.sleep && !currentlySleeping) {
+      currentlySleeping = true;
+      segments += 1;
+    }
+    if (!slot.sleep) {
+      currentlySleeping = false;
+    }
+  });
+
+  return segments;
+}
+
+function getTagCounts() {
+  return sleepLogState.reduce((counts, slot) => {
+    if (slot.tag) {
+      counts[slot.tag] = (counts[slot.tag] || 0) + 1;
+    }
+    return counts;
+  }, {});
+}
+
+function computeSleepScore(totalHours) {
+  if (totalHours >= 8) {
+    return 95;
+  }
+  if (totalHours >= 6) {
+    return Math.round((totalHours / 8) * 100);
+  }
+  return Math.max(20, Math.round((totalHours / 8) * 100));
+}
+
+function saveSleepLog() {
+  const rawHistory = getSleepHistory();
+  const dateKey = new Date().toLocaleDateString();
+  const totalHours = sleepLogState.filter((slot) => slot.sleep).length * 0.5;
+  const awakenings = Math.max(0, countSleepSegments() - 1);
+  const tags = sleepLogState
+    .map((entry, index) => ({ tag: entry.tag, index }))
+    .filter((entry) => entry.tag)
+    .map((entry) => ({ time: formatSleepTime(entry.index), tag: entry.tag }));
+
+  if (totalHours === 0) {
+    alert("Please map at least one sleep block before saving your log.");
+    return;
+  }
+
+  const newEntry = {
+    date: dateKey,
+    hours: totalHours,
+    awakenings,
+    score: computeSleepScore(totalHours),
+    tags,
+  };
+
+  const existingIndex = rawHistory.findIndex((entry) => entry.date === dateKey);
+  if (existingIndex !== -1) {
+    rawHistory[existingIndex] = newEntry;
+  } else {
+    rawHistory.unshift(newEntry);
+  }
+
+  const history = rawHistory.slice(0, 14);
+  localStorage.setItem("sleepHistory", JSON.stringify(history));
+  renderHistory(history);
+  alert("✅ Today's sleep log saved. Your 14-day history is updated.");
+}
+
+function getSleepHistory() {
+  try {
+    const raw = localStorage.getItem("sleepHistory");
+    return raw ? JSON.parse(raw) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function renderHistory(history) {
+  const list = document.getElementById("history-list");
+  if (!history || history.length === 0) {
+    list.innerHTML = "<p>Save sleep logs to build your weekly history.</p>";
+    return;
+  }
+
+  list.innerHTML = history
+    .map(
+      (entry) => `
+      <div class="history-item">
+        <strong>${entry.date} • ${entry.hours.toFixed(1)} hrs • Score ${entry.score}%</strong>
+        <p>Awakenings: ${entry.awakenings}</p>
+        <p>Tags: ${
+          entry.tags.map((item) => `${item.tag} @ ${item.time}`).join(", ") ||
+          "None"
+        }</p>
+      </div>
+    `,
+    )
+    .join("");
+}
 
 /* ==================== INTERACTIVE ENHANCEMENTS ==================== */
 
