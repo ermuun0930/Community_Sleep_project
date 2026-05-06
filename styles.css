@@ -20,10 +20,12 @@
   --accent-blue: #4a6fa5;
 
   /* Fonts */
-  --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-main: "Open Sans", sans-serif;
+  --font-headers: "Poppins", sans-serif;
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-bold: 600;
+  --font-weight-extra-bold: 700;
 }
 
 html {
@@ -34,9 +36,53 @@ body {
   background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
   color: var(--text-primary);
   font-family: var(--font-main);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-light);
   line-height: 1.6;
+  letter-spacing: 0.02em;
   min-height: 100vh;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headers);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: var(--font-weight-extra-bold);
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+h6 {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
 }
 
 /* ==================== NAVIGATION ==================== */
