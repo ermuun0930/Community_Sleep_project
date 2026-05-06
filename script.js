@@ -363,6 +363,10 @@ const tagMeta = {
 function initSleepLog() {
   const grid = document.getElementById("sleep-grid");
   const labels = document.getElementById("sleep-log-labels");
+  if (!grid || !labels) {
+    return;
+  }
+
   const history = getSleepHistory();
 
   sleepLogState.length = 0;

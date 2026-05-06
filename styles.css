@@ -977,6 +977,31 @@ h6 {
   padding-bottom: 0;
 }
 
+.sleep-diary-download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.sleep-diary-download h3 {
+  color: var(--neon-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.sleep-diary-download p {
+  color: var(--text-secondary);
+}
+
+.sleep-diary-download .cta-primary {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
 .sleep-log-grid-wrapper {
   overflow-x: auto;
   margin: 0 auto 1.5rem;
@@ -1141,6 +1166,16 @@ h6 {
 }
 
 @media (max-width: 700px) {
+  .sleep-diary-download {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sleep-diary-download .cta-primary {
+    width: 100%;
+    text-align: center;
+  }
+
   .sleep-log-grid,
   .sleep-log-labels {
     min-width: 960px;
