@@ -18,10 +18,10 @@
       <div class="nav-container">
         <div class="logo">💤 SleepHacker</div>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="science.html">The Science</a></li>
-          <li><a href="saboteurs.html">The Saboteurs</a></li>
-          <li><a href="tools.html" class="active">Tools</a></li>
+          <li><a href="saboteurs.html">About Sleep Blockers</a></li>
+          <li><a href="tools.html">Improve Your Sleep</a></li>
         </ul>
       </div>
     </nav>
@@ -496,9 +496,10 @@
       <div class="tool-header">
         <h2>📊 Build Your Sleep Log</h2>
         <p class="tool-description">
-          Tap or drag across the 24-hour timeline to map your sleep, track
-          awakenings, and drop saboteur icons into the hours where they
-          happened.
+          Download this PDF file to print your own sleep log template, or use
+          the interactive version below to track your sleep and habits
+          digitally. The more data you collect, the better you can understand
+          your patterns and optimize your sleep hygiene!
         </p>
       </div>
 
@@ -509,20 +510,6 @@
           id="sleep-grid"
           aria-label="Sleep log timeline"
         ></div>
-      </div>
-
-      <div class="sleep-log-controls">
-        <div class="button-row">
-          <button class="calc-button" id="clear-sleep">Clear Sleep</button>
-          <button class="calc-button" id="clear-tags">Clear Tags</button>
-          <button class="calc-button" id="save-sleep-log">
-            Save Today's Log
-          </button>
-        </div>
-        <p class="sleep-log-instructions">
-          Start by dragging across the timeline to mark sleep. Tap a tag below,
-          then tap or drop it onto a slot to assign it.
-        </p>
       </div>
 
       <div class="tag-dock" id="tag-dock">
@@ -538,7 +525,7 @@
       </div>
 
       <div class="sleep-history" id="sleep-history">
-        <h3>14-Day Sleep History</h3>
+        <h3>7-Day Sleep History</h3>
         <div class="history-list" id="history-list">
           <p>Save sleep logs to build your weekly history.</p>
         </div>
